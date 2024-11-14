@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Authentication
+
+@{
+    ViewData["Title"] = "Private Page";
+}
+
+
+@if (User != null)
+{
+    <p>Olá @User.Claims.FirstOrDefault(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")?.Value</p>
+    <p>Seu email é @User.Claims.FirstOrDefault(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress")?.Value</p>
+    <br />
+    <dl>
+        <dt>Id Token</dt>
+        <dd>@Context.AuthenticateAsync().Result.Properties.Items.FirstOrDefault(x => x.Key == ".Token.id_token").Value</dd>
+        <dt>Access Token</dt>
+        <dd>@Context.AuthenticateAsync().Result.Properties.Items.FirstOrDefault(x => x.Key == ".Token.access_token").Value</dd>
+    </dl>
+}
+else
+{
+    <p>Usuário não autenticado.</p>
+}
