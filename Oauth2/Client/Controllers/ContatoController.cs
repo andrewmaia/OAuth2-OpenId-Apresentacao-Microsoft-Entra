@@ -32,7 +32,7 @@ public class ContatoController : Controller
         var app = ConfidentialClientApplicationBuilder.Create("xxxx")
                .WithClientSecret("xxxx")
                .WithRedirectUri("https://localhost:7080/contato/ContatoCallback")
-               .WithAuthority(new Uri("https://login.microsoftonline.com/7cd172cf-0ad7-4cef-b74f-b3866d4aa291"))
+               .WithAuthority(new Uri("https://login.microsoftonline.com/xxxxx"))
                .Build();
 
         var result = await app.AcquireTokenByAuthorizationCode(new[] { "api://xxxxxx/contato" }, code).ExecuteAsync();
