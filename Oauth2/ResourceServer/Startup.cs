@@ -71,7 +71,6 @@ namespace Api
             app.UseRouting();
 
             app.UseAuthentication();
-            //app.UseMiddleware<CheckClaimMiddleware>("http://schemas.microsoft.com/identity/claims/scope", "contato");
             app.UseAuthorization();
 
 
