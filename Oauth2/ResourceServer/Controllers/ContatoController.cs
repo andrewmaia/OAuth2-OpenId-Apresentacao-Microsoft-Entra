@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Api.Controllers
 {
     [Route("contato")]
+    [Authorize(Policy = "ApiScope")]
     public class ContatoController : ControllerBase
     {
 
         [HttpGet]
+
         public IActionResult Get()
         {
             List<Contato> contatos = new List<Contato> ();
