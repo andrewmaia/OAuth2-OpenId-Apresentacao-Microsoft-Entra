@@ -18,7 +18,7 @@ public class ContatoController : Controller
     public IActionResult Index()
     {
         var query = new QueryBuilder();
-        query.Add("client_id", "");
+        query.Add("client_id", "xxxxxx");
         query.Add("scope", "api://xxxxxx/contato");
         query.Add("response_type", "code");
         query.Add("redirect_uri", "https://localhost:7080/contato/ContatoCallback");
